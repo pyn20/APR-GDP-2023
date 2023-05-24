@@ -19,7 +19,7 @@ rho_cruise      = 0.55; % 25k ft
 rho_diversion   = 0.55; % 25k ft
 rho_ServCeil    = 0.44; % 30k ft
 V_cruise        = 139; % ms^1
-V_diversion     = 126; % ms^1
+V_diversion     = 139; % ms^1
 V_ServCeil      = 139; % ms_1
 AR              = 8.5;
 e               = 0.79;
@@ -110,7 +110,7 @@ P_W.diversion = V_diversion / eta_p .* T_W.diversion;
 % Landing
 W_S_landing = 1/w_frac_at.landing * (0.6*LDA-S_a) * CLmax_climb3 / 0.51;
 
-% Absolute Ceiling
+% Service Ceiling
 T_W.ServCeil = w_frac_at.cruise/t_frac_at.cruise * (1/V_ServCeil * climb_rate_service_ceiling + ...
     0.5*rho_ServCeil*V_ServCeil^2*C_D0./(w_frac_at.cruise*W_S)...
     + w_frac_at.cruise*W_S/(0.5*rho_ServCeil*V_ServCeil^2*pi*AR*e));
@@ -150,39 +150,36 @@ figure()
 plot(W_S,T_W.cruise,'DisplayName','Cruise')
 hold on
 plot(W_S,T_W.diversion,'DisplayName','Diversion')
-plot(W_S,T_W.ServCeil,'DisplayName','Absolute Ceiling')
-plot(W_S, T_W.Climb1,'DisplayName','Start of Climb')
-plot(W_S, T_W.Climb2,'DisplayName','End of Climb')
-plot(W_S, T_W.Climb3,'DisplayName','Landing Climb')
-plot(W_S, T_W.Climb4,'DisplayName','Approach Climb')
+plot(W_S,T_W.ServCeil,'DisplayName','Service Ceiling')
+plot(W_S, T_W.Climb1,'DisplayName','Climb 1')
+plot(W_S, T_W.Climb2,'DisplayName','Climb 2')
+plot(W_S, T_W.Climb3,'DisplayName','Climb 3')
+plot(W_S, T_W.Climb4,'DisplayName','Climb 4')
 plot(W_S,T_W.bfl,'DisplayName','Take-off')
 plot([W_S_landing, W_S_landing],[0, 10],'DisplayName','Landing')
 hold off
 ylim([0,0.7])
-xlim([0,4000])
+xlim([0,6000])
 title('Thrust-to-Weight Constraint Map')
 xlabel('Wing Loading, W/S_{ref} (N/m^2)')
 ylabel('Thrust to Weight, T/W (N/N)')
 legend
-grid on
 
 figure()
-grid on
 plot(W_S,P_W.cruise,'DisplayName','Cruise')
 hold on
 plot(W_S,P_W.diversion,'DisplayName','Diversion')
-plot(W_S,P_W.ServCeil,'DisplayName','Absolute Ceiling')
-plot(W_S, P_W.Climb1,'DisplayName','Start of Climb')
-plot(W_S, P_W.Climb2,'DisplayName','End of Climb')
-plot(W_S, P_W.Climb3,'DisplayName', 'Landing Climb')
-plot(W_S, P_W.Climb4,'DisplayName','Approach Climb')
+plot(W_S,P_W.ServCeil,'DisplayName','Service Ceiling')
+plot(W_S, P_W.Climb1,'DisplayName','Climb 1')
+plot(W_S, P_W.Climb2,'DisplayName','Climb 2')
+plot(W_S, P_W.Climb3,'DisplayName','Climb 3')
+plot(W_S, P_W.Climb4,'DisplayName','Climb 4')
 plot(W_S,P_W.bfl,'DisplayName','Take-off')
 plot([W_S_landing, W_S_landing],[0, 150],'DisplayName','Landing')
 hold off
 ylim([0,80])
-xlim([0,4000])
+xlim([0,6000])
 title('Power-to-Weight Constraint Map')
 xlabel('Wing Loading, W/S_{ref} (N/m^2)')
 ylabel('Power to Weight, P/W (W/N)')
 legend
-grid on
