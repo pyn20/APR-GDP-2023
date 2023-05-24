@@ -59,7 +59,7 @@ w_frac.diversion    = 0.975; % SUBJECT TO CHANGE
 w_frac.loiter       = 0.968;
 
 w_frac_at.cruise    = w_frac.takeoff * w_frac.climb;
-w_frac_at.landing   = 0.77;
+w_frac_at.landing   = 0.85;
 w_frac_at.diversion = w_frac_at.cruise * w_frac.cruise * w_frac.landing * ...
     w_frac.goAround;
 w_frac_at.loiter    = w_frac_at.diversion * w_frac.diversion;
