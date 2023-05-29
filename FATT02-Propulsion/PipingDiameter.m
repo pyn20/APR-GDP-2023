@@ -3,7 +3,7 @@ clc
 close all
 mdot = 0.72;
 fracCat = 0.77;
-rhoSS = 8000; %Density of stainless steel
+rhoSS = 7500; %Density of stainless steel
 pipeLengthCat = 5;
 pipeLengthDirect = 15;
 tpipe = 5e-3; %Pipes are 5mm thick
