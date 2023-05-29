@@ -2,7 +2,6 @@
 # Controls-Exclusive
 GDP Controls Exclusive
 
-Award winning team(?) for 2022-2023 GDP
 Ammonium Powered Aircraft
 
 This repository contains all the code for aircraft stability analysis.
