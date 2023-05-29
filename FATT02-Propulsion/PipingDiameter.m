@@ -1,12 +1,14 @@
 clear
 clc
 close all
+mdot = 0.72;
+fracCat = 0.77;
 rhoSS = 8000; %Density of stainless steel
 pipeLengthCat = 5;
 pipeLengthDirect = 15;
 tpipe = 5e-3; %Pipes are 5mm thick
-mCatalyst = 0.539; %Mass flow rate through to catalyst
-mDirect = 0.161; %Mass flow rate of direct NH3 supply 
+mCatalyst = mdot*fracCat; %Mass flow rate through to catalyst
+mDirect = mdot*(1-fracCat); %Mass flow rate of direct NH3 supply 
 targetv = 100;
 T1 = 15; %reference temperature for calculating ammonia density
 T2Cat = 400; % Reference temperature of heated ammonia (Catalyst Pipeline)
