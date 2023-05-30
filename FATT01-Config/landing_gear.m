@@ -18,33 +18,28 @@ format long g
 
 % Fill in:
 
-x_cg = ;
+x_cg = 15;
 
 W0_kg = 30574; %MTOW, kg
 
 W0 = W0_kg*9.81; %MTOW, N % UPDATE
 W0_lbs = (W0/9.81)*2.20462;
 n_struts = 3; % total number of struts
-b = 28.35; % UPTDADE
+b = 28.35; % wingspan, m,  UPTDADE
 wheels_per_strut = 2; % number of wheels per strut;
 l_fuselage = 22; %m, UPDATE
-c_root_wing = 1; % m, UPTADE
 theta_tipback = 15; % degrees, UPDATE
 D_fuselage = 2.5; % m, fuselage diameter , UPDATE
-gamma = 2; % degrees, dihedral , UPDATE
+gamma = 6.5; % degrees, dihedral , UPDATE
 D_engine = 4 ; % propeller diameter, m, UPDATE
 c = 0.45; % m , engine clearance, Saab 2000 
 
-W_ng_W0 = 0.06; % ideal static load on nose gear fraction, errikos
+W_ng_W0 = 0.08; % ideal static load on nose gear fraction, errikos
 W_ng = W_ng_W0*W0; % static load on nose gear, N
 W_mg_W0 =  1 - W_ng_W0; % static load on main gear fraction
 W_mg = W_mg_W0*W0; % static load on main gear, N
 
 % PLACEMENT:
-
-mg_tire_spacing = 20; %inches, spacing between main gear wheels per gear
-
-w_mg_tyre = 11.5; % main gear tyre width, inches
 
 theta_v = 19; % vertical cog angle to main gear, degrees
 
@@ -62,11 +57,6 @@ x_mg = x_cg + h_cg*tand(theta_v); % main gear location from nose, m
 % theta_v = atand(x_mg - x_cg)/(h_cg);
 x_ng = (x_cg -  (W_mg_W0*x_mg))/(W_ng_W0); % nose gear location from nose, m
 
-uc.mg.long = x_mg;
-uc.ng.long = x_ng;
-uc.mg.height = h_mg;
-uc.ng.height = h_ng;
-
 
 % Lateral placement - main gear
 % theta_ot = 60; % overturn angle, degrees
@@ -75,10 +65,6 @@ uc.ng.height = h_ng;
 
 theta_ot = atand((h_cg/l_mg)*((x_mg - x_ng)/(x_mg - x_ng - h_cg*tand(theta_v)))); % degrees
 
-uc.mg.tyre_spacing = mg_tire_spacing;
-uc.mg_lateral = l_mg;
-
-
 
 B = (x_mg - x_ng)*3.281;
 H = h_cg*3.281; % cog height above static ground line, ft
@@ -86,6 +72,11 @@ H = h_cg*3.281; % cog height above static ground line, ft
 % TIRE SELECTION:
 
 % main gear
+mg_tire_spacing = 20; %inches, spacing between main gear wheels per gear
+
+w_mg_tyre = 11.5; % main gear tyre width, inches
+
+
 W_w_mg_lbs = (((W_mg/2)*1.07)/wheels_per_strut)*(2.20462/9.81); % main gear tire load, lbs
 
 mg_tire_outside_diameter = 29.75; % inches
