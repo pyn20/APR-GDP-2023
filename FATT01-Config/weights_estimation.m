@@ -3,8 +3,8 @@ clc
 close all
 
 %% Parameters
-AR = param.AR;  % wing aspect ratio
-AR_h = param.ht.AR;  % horizontal tailplane aspect ratio
+AR = 8.5;  % wing aspect ratio
+AR_h = ;  % horizontal tailplane aspect ratio
 AR_v = param.vt.AR;    % vertical tailplane aspect ratio
 A_fc = param.fuse.A_cargo*10.764;    % cargo hold floor area
 B_h = convlength(param.ht.b,'m','ft');    % horizontal taiplane span
@@ -152,9 +152,3 @@ weights_Raymer.W_ai = 0.002*W_dg;
 weights_Raymer.W_p = 105*90+5*80;
 
 
-w_total = sum(cell2mat(struct2cell(weights_Raymer)));
-labels = fieldnames(weights_Raymer);
-pie(cell2mat(struct2cell(weights_Raymer)),labels)
-T = struct2table(weights_Raymer);
-
-% save("Weights_Raymer","Weights_Raymer")
