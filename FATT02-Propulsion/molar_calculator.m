@@ -11,7 +11,7 @@ close all
 %ratios in comparison to pure ammonia or pure hydrogen fuel
 %all assumes 100% efficiency
 
-[mH,mA,mN,nA,nH,nN,mAR,mAC,nAR,nAC,nAU,mAU,pA,pAR] = molarCalc(0.7,17,2,1/3,0.8)
+[mA_fuelmix, mN_fuelmix, mH_fuelmix,pA,pAR] = molarCalc(0.7,17,2,1/3)
 
 disp("Percentage of original Ammonia which remains in final mixture:")
 disp(pA)
@@ -19,14 +19,14 @@ disp("Percentage of original Ammonia which is catalytically converted to Hydroge
 disp(pAR)
  
 disp("Mass percentage of Ammonia in fuel mixture")
-disp(mA/(mA+mN+mH))
+disp(mA_fuelmix)
 disp("Mass percentage of Nitrogen in fuel mixture")
-disp(mN/(mA+mN+mH))
+disp(mN_fuelmix)
 disp("Mass percentage of Hydrogen in fuel mixture")
-disp(mH/(mA+mN+mH))
+disp(mH_fuelmix)
 
 
-function [mH,mA,mN,nA,nH,nN,mAR,mAC,nAR,nAC,nAU,mAU,pA,pAR] = molarCalc(mr,aGFM,hGFM,nhR,eff)
+function [mA_fuelmix, mN_fuelmix, mH_fuelmix,pA,pAR] = molarCalc(mr,aGFM,hGFM,nhR)
 
 %constants
 
@@ -73,6 +73,17 @@ mAU = nAU*aGFM; %unreacted mass of ammonia
 
 pA =  nAU/(nAU+nAR)*100; %percentage of ammonia which remains for combustion
 pAR = nAR/(nAU+nAR)*100; %percentage catalytically converted
+
+
+% Mass percentage of Ammonia in fuel mixture
+mA_fuelmix = mA/(mA+mN+mH)
+
+% Mass percentage of Nitrogen in fuel mixture
+mN_fuelmix = mN/(mA+mN+mH) 
+
+% Mass percentage of Hydrogen in fuel mixture
+mH_fuelmix = mH/(mA+mN+mH)
+
 
 end
 
