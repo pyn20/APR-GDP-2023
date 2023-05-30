@@ -11,6 +11,12 @@ close all
 %ratios in comparison to pure ammonia or pure hydrogen fuel
 %all assumes 100% efficiency
 
+% INPUT
+% mr = 0.7; %ratio of ammonia in final fuel mixture
+% aGFM = 17; %molar mass of ammonia molecule
+% hGFM = 2; %molar mass of hydrogen molecule
+% nhR = 1/3; %nitrogen to hydrogen molar ratio
+
 [mA_fuelmix, mN_fuelmix, mH_fuelmix,pA,pAR] = molarCalc(0.7,17,2,1/3)
 
 disp("Percentage of original Ammonia which remains in final mixture:")
@@ -30,18 +36,8 @@ function [mA_fuelmix, mN_fuelmix, mH_fuelmix,pA,pAR] = molarCalc(mr,aGFM,hGFM,nh
 
 %constants
 
-mr = 0.7; %ratio of ammonia in final fuel mixture
-
-aGFM = 17; %molar mass of ammonia molecule
-hGFM = 2; %molar mass of hydrogen molecule
 nGFM = 28; %molar mass of nitrogen molecule
-
-nhR = 1/3; %nitrogen to hydrogen molar ratio
-
 eff = 0.8; %efficiency
-
-
-
 
 %molar calculation
 
