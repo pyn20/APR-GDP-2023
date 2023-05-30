@@ -20,12 +20,9 @@ EFF = 0.80; %efficiency
 
 maxP = 7800; %max power required in kW for all engines
 
-T1 = 15; %reference temperature for calculating ammonia density
-T2Cat = 400; % Reference temperature of heated ammonia (Catalyst Pipeline)
-
 aRho = 12410; %density of the active material
 sRho = 2500; %density of the support material
-amRho = 0.73*((T1+273.15)/(T2Cat+273.15)); %density of ammonia in gas state
+amRho = 0.3; %density of ammonia in gas state
 cRho = 7500; %density of the casing
 
 aP = 0.05; %weight percentage of the active material in the catalyst
