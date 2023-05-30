@@ -18,8 +18,8 @@ weightConnector = lengthConnector*0.15*0.1*rhoCopper;
 contactAreaConnector = 0.15*0.1; %in m^2
 
 
-innerDiaCat = 0.44; %Inner and outer diameter of the copper part that wraps around the catalytic converter
-outerDiaCat = 0.46;
+innerDiaCat = 0.48; %Inner and outer diameter of the copper part that wraps around the catalytic converter
+outerDiaCat = innerDiaCat + 0.02;
 thicknessCat = 0.5;
 weightCopperCat = pi*((outerDiaCat/2)^2 - (innerDiaCat/2)^2)*thicknessCat*rhoCopper;
 contactAreaTurbCat = pi*innerDiaCat*thicknessCat; %m^2
