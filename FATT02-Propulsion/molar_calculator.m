@@ -11,8 +11,22 @@ close all
 %ratios in comparison to pure ammonia or pure hydrogen fuel
 %all assumes 100% efficiency
 
+[mH,mA,mN,nA,nH,nN,mAR,mAC,nAR,nAC,nAU,mAU,pA,pAR] = molarCalc(0.7,17,2,1/3,0.8)
+
+disp("Percentage of original Ammonia which remains in final mixture:")
+disp(pA)
+disp("Percentage of original Ammonia which is catalytically converted to Hydrogen:")
+disp(pAR)
+ 
+disp("Mass percentage of Ammonia in fuel mixture")
+disp(mA/(mA+mN+mH))
+disp("Mass percentage of Nitrogen in fuel mixture")
+disp(mN/(mA+mN+mH))
+disp("Mass percentage of Hydrogen in fuel mixture")
+disp(mH/(mA+mN+mH))
 
 
+function [mH,mA,mN,nA,nH,nN,mAR,mAC,nAR,nAC,nAU,mAU,pA,pAR] = molarCalc(mr,aGFM,hGFM,nhR,eff)
 
 %constants
 
@@ -53,22 +67,15 @@ nAC = mAC/aGFM; % number of moles of ammonia that went unreacted through the cat
 nAU = nA - nAC; %unreacted ammonia ratio
 mAU = nAU*aGFM; %unreacted mass of ammonia
 
+
+
 %ammonia percentage calculation
 
-pA = nAU/(nAU+nAR)*100; %percentage of ammonia which remains for combustion
+pA =  nAU/(nAU+nAR)*100; %percentage of ammonia which remains for combustion
 pAR = nAR/(nAU+nAR)*100; %percentage catalytically converted
 
-disp("Percentage of original Ammonia which remains in final mixture:")
-disp(pA)
-disp("Percentage of original Ammonia which is catalytically converted to Hydrogen:")
-disp(pAR)
+end
 
-disp("Mass percentage of Ammonia in fuel mixture")
-disp(mA/(mA+mN+mH))
-disp("Mass percentage of Nitrogen in fuel mixture")
-disp(mN/(mA+mN+mH))
-disp("Mass percentage of Hydrogen in fuel mixture")
-disp(mH/(mA+mN+mH))
 
 %reactant molar ratios
 
