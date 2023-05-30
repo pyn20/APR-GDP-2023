@@ -20,7 +20,7 @@ mr = 0.7; %ratio of ammonia in final fuel mixture
 
 aGFM = 17; %molar mass of ammonia molecule
 hGFM = 2; %molar mass of hydrogen molecule
-nGFM = 14; %molar mass of nitrogen molecule
+nGFM = 28; %molar mass of nitrogen molecule
 
 nhR = 1/3; %nitrogen to hydrogen molar ratio
 
