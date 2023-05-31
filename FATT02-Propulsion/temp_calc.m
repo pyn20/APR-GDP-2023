@@ -44,6 +44,10 @@ nO2AIR = MAIR/(MRAIR+1)/mO2; %Number of moles of Oxygen in Air
 nO2WATER = nH2O/2; %Number of moles of Oxygen used in Water
 nO2 = nO2AIR - nO2WATER; %Number of moles of Oxygen in excess that's heated up on the product side
 
+%NOX EMISSIONS
+
+
+
 disp(nN2)
 disp(nN2AIR)
 disp(nN2AIR/nN2)
