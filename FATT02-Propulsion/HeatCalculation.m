@@ -1,3 +1,6 @@
+clear
+clc
+close all
 
 % Heat calculation of Ru-catalyst with support of CNTs-MgO
 
