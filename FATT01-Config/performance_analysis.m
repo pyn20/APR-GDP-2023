@@ -134,3 +134,12 @@ fprintf('SB: %f m\n',SB)
 % disp('LDR is')
 fprintf('LDR is %f m \n',LDR)
 
+%% Mission Performance
+
+
+
+%% Point Performance
+
+
+
+%% Flight Envelope - SEP plot

@@ -43,7 +43,7 @@ W_mg = W_mg_W0*W0; % static load on main gear, N
 
 theta_v = 19; % vertical cog angle to main gear, degrees
 
-l_mg = 2; %guess, m
+l_mg = 3; %guess, m
 
 % Longitudinal placement and heights
 h_mg = (D_engine/2) + c; % total height of mg above ground, m
