@@ -5,7 +5,7 @@ close all
 % Converting equivalence ratio to fuel:air ratio
 % equivalence ratio = FAR_real / FAR_stoi;
 
-phi = 1;
+% phi = 1;
 
 % Calculating fuel:air ratio for complete combutsion by assuming negligible
 % nitrogen in th e reactant
@@ -25,4 +25,8 @@ ma = (100/21)*mo;
 
 FAR_stoi = mf/ma; 
 
-FAR_real = phi* FAR_stoi
+% FAR_real = phi* FAR_stoi;
+
+%FAR_real = 0.0162;
+FAR_real = 0.012546;
+phi = FAR_real / FAR_stoi
