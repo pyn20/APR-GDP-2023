@@ -24,23 +24,28 @@ nO2=5/4*nNH3+0.5*nH2;
 m_A_ST= nO2*o2_mm + nO2*nN2Rat*n2_mm;
 m_F_ST= mNH3+mH2; %g at 70-30 mass ratio for Ammonia - H2
 
-FAR=0.01254;
+% phi=1 FAR=0.057523;
 
+FAR=0.01255;
 AFR_ST=m_A_ST/m_F_ST;
+
+AFR_ST_KE=(23*32+62.5*28.01)/(226.4412);
 
 AFR=1/FAR;
 
-eq_ratio=AFR/AFR_ST;
+lambda=AFR/AFR_ST;
+phi=1/lambda;
+
 
 
 % balanced equation 4NH3+6NO -> 5N2 + 6H2O
 nNO=nNH3;
 
 m_NO= nNO*no_mm;
-AMMONIAMASS= 2/3*NOMOL*ammonia_mm;
+AMMONIAMASS= 2/3*nNO*ammonia_mm;
 
-WATERMASS=NOMOL*18.01528;
-NITROGENMASS= 5/6*NOMOL* 28.0134;
+WATERMASS=nNO*18.01528;
+NITROGENMASS= 5/6*nNO* 28.0134;
 
 fprintf('We will need %.4g grams of ammonia to reduce %.4g grams of NOx emissions\n',AMMONIAMASS,m_NO) 
 fprintf('As a result we will obtain %.4g grams of water and %.4g grams of N2',WATERMASS,NITROGENMASS) %masses for reduction only not considering initial emissions
