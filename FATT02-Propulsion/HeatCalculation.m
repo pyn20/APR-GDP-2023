@@ -18,7 +18,7 @@ P_l = e_steel*sigma*SurfaceA_l*(T_2^4-T_1^4)
 
 % P_e: power of heat loss to endothermic reaction, constant
 E_per_mol = 92.21536*10^3/2;  %J/mol
-flow_one_engine = 0.2062/(17/1000); %in mol/s
+flow_one_engine = 0.25/(17/1000); %in mol/s
 E_per_s = E_per_mol*flow_one_engine;
 P_e = E_per_s
 
