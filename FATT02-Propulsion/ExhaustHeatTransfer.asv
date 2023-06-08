@@ -9,7 +9,7 @@ lExh = 0.22; %Approximate length of exhaust region
 CpExh = 1115 ; %Cp of air at exhaust temp
 muExh = 3.846e-5; % Kinematic viscosity of air at exhaust
 kExh = 0.06093; %W/mk conductivity of air at exhaust
-Tpipes = 550+273;%Assumed because i dont really know how to do this part yet. WE just initialize it as this, it is solved in the loop
+Tpipes = 500+273;%Assumed because i dont really know how to do this part yet. WE just initialize it as this, it is solved in the loop
 sBoltz = 5.6704e-8; %Stefan Boltzmann const
 dPipes = 0.03; % Assume coolant pipe diameter 3cm
 nLoops = floor(lExh/dPipes); %Number of loops we can make with the coolant pipes
@@ -42,3 +42,7 @@ while abs(qdotPipes-qExh) > 10
     qExh = qdotExhConv + qdotExhRad;
     qdotPipes = hPipe*(Tpipes-TEG);
 end
+
+%For the system outside of the engine (The part where we heat up the
+%ammonia pipe)
+Tair = -33 + 273

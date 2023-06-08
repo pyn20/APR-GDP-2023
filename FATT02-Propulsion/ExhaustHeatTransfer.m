@@ -34,6 +34,8 @@ kEG = 0.254; %Thermal conductivity of ethelene glycol
 TEG = 198 + 273; % Assume Ethylene glycol will heat up to it's boiling temperature of 198 C
 hPipe = NuPipe*kEG/dPipes; %h of the pipes transferring heat to the laminar flowing coolant in the pipes
 qdotPipes = hPipe*(Tpipes-TEG); %We have a condition that qdotPipes must = qExh, we can find the equilibrium temperature of the pipes in the exhaust
+%ah dumb qdotPipes is a rate!! We can raise the temperature of EG to 198k
+%IF it is flowing at exactly 1kg/s
 
 %Convergence to find equilibrium temperature of copper pipes inside exhaust
 while abs(qdotPipes-qExh) > 10
@@ -42,3 +44,7 @@ while abs(qdotPipes-qExh) > 10
     qExh = qdotExhConv + qdotExhRad;
     qdotPipes = hPipe*(Tpipes-TEG);
 end
+
+%For the system outside of the engine (The part where we heat up the
+%ammonia pipe)
+Tair = -35 + 273;
