@@ -29,18 +29,23 @@ qExh = qdotExhConv + qdotExhRad; % q = Q/A, therefore Q = qExh*APipes (Total hea
 
 %Calculating temperature of the coolant fluid due to heat flux from copper
 %pipes
+mcoolant = 2; %Mass flow rate of coolant, assume it's like 2kg/s or some shit like that
 NuPipe = 4.36; %This is for laminar, if coolant fluid flow is turbulent, follow a slightly different but equally simple process
 kEG = 0.254; %Thermal conductivity of ethelene glycol
 TEG = 198 + 273; % Assume Ethylene glycol will heat up to it's boiling temperature of 198 C
 hPipe = NuPipe*kEG/dPipes; %h of the pipes transferring heat to the laminar flowing coolant in the pipes
-qdotPipes = hPipe*(Tpipes-TEG); %We have a condition that qdotPipes must = qExh, we can find the equilibrium temperature of the pipes in the exhaust
-%ah dumb qdotPipes is a rate!! We can raise the temperature of EG to 198k
+cEG = 3140; %J/kg, specific heat capacity of Ethylene glycol
+
+qdotPipes1 = hPipe*(Tpipes-TEG); %We have a condition that qdotPipes must = qExh, we can find the equilibrium temperature of the pipes in the exhaust
+%ah dumb qdotPipes is a rate! We can raise the temperature of EG to 198k
 %IF it is flowing at exactly 1kg/s
+
 
 %Convergence to find equilibrium temperature of copper pipes inside exhaust
 while abs(qdotPipes-qExh) > 10
     Tpipes = Tpipes + 0.01;
     qdotExhConv = hExh*(T0e-Tpipes);
+    qdotExhRad = emTit*sBoltz*(T0e^4-Tpipes^4);
     qExh = qdotExhConv + qdotExhRad;
     qdotPipes = hPipe*(Tpipes-TEG);
 end
