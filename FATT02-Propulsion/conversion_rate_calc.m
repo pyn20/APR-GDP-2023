@@ -18,7 +18,7 @@ hLHV = 120; %in MJ/kg
 GFM = 2; %gfm of hydrogen
 EFF = 0.80; %efficiency
 
-maxP = 7800; %max power required in kW for all engines
+maxP = 6692; %max power required in kW for all engines
 
 T1 = 15; %reference temperature for calculating ammonia density
 T2Cat = 400; % Reference temperature of heated ammonia (Catalyst Pipeline)
