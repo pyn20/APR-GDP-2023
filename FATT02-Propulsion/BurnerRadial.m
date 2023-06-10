@@ -17,8 +17,7 @@ kTit = 11.4; %thermal conductivity of titanium
 Tw = 600 + 273; %Temp at the inner wall of burner, take to be max svc temp of titanium.
 
 
-%Calculating heat flow from Burneraust to the copper pipes (Convection +
-%Radiation)
+
 ABurner = pi*(dBurner/2)^2;% if you cannot figure this one out you may have brain damage
 NuBurner = 0.023*(((me*dBurner)/(ABurner*muBurner))^0.8)*((CpBurner*muBurner)/(kBurner))^0.3;% Noooooselt nombre
 hBurner = NuBurner*kBurner/dBurner;% h at the Burner
