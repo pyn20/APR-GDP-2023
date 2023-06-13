@@ -1,7 +1,7 @@
 %housekeeping
-clear
-clc
-close all
+% clear
+% clc
+% close all
 
 
 
@@ -17,19 +17,19 @@ close all
 % hGFM = 2; %molar mass of hydrogen molecule
 % nhR = 1/3; %nitrogen to hydrogen molar ratio
 
-[mA_fuelmix, mN_fuelmix, mH_fuelmix,pA,pAR] = molarCalc(0.7,17,2,1/3)
-
-disp("Percentage of original Ammonia which remains in final mixture:")
-disp(pA)
-disp("Percentage of original Ammonia which is catalytically converted to Hydrogen:")
-disp(pAR)
- 
-disp("Mass percentage of Ammonia in fuel mixture")
-disp(mA_fuelmix)
-disp("Mass percentage of Nitrogen in fuel mixture")
-disp(mN_fuelmix)
-disp("Mass percentage of Hydrogen in fuel mixture")
-disp(mH_fuelmix)
+% [mA_fuelmix, mN_fuelmix, mH_fuelmix,pA,pAR] = molarCalc(0.7,17,2,1/3);
+% 
+% disp("Percentage of original Ammonia which remains in final mixture:")
+% disp(pA)
+% disp("Percentage of original Ammonia which is catalytically converted to Hydrogen:")
+% disp(pAR)
+%  
+% disp("Mass percentage of Ammonia in fuel mixture")
+% disp(mA_fuelmix)
+% disp("Mass percentage of Nitrogen in fuel mixture")
+% disp(mN_fuelmix)
+% disp("Mass percentage of Hydrogen in fuel mixture")
+% disp(mH_fuelmix)
 
 
 function [mA_fuelmix, mN_fuelmix, mH_fuelmix,pA,pAR] = molarCalc(mr,aGFM,hGFM,nhR)
@@ -72,13 +72,13 @@ pAR = nAR/(nAU+nAR)*100; %percentage catalytically converted
 
 
 % Mass percentage of Ammonia in fuel mixture
-mA_fuelmix = mA/(mA+mN+mH)
+mA_fuelmix = mA/(mA+mN+mH);
 
 % Mass percentage of Nitrogen in fuel mixture
-mN_fuelmix = mN/(mA+mN+mH) 
+mN_fuelmix = mN/(mA+mN+mH);
 
 % Mass percentage of Hydrogen in fuel mixture
-mH_fuelmix = mH/(mA+mN+mH)
+mH_fuelmix = mH/(mA+mN+mH);
 
 
 end
