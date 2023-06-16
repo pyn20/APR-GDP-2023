@@ -52,7 +52,7 @@ h = nuA*kA/L;
 
 syms T2 T3 Qdot
 
-[solQdot, solT2, solT3] = solve(Qdot == h*AA*(T1-T2), Qdot == kAl*AAl/tAl*(T2-T3), Qdot == 0.52*kNH/L*(rhoNH^2*cpNH*bNH*(-T3-T4)*g/(dvNH*kNH))^0.2*AAl*(T3-T4));
+[solQdot, solT2, solT3] = solve(Qdot == h*AA*(T1-T2), Qdot == kAl*AAl/tAl*(T2-T3), Qdot == 0.52*kNH/L*(rhoNH^2*cpNH*bNH*(T3-T4)*g/(dvNH*kNH))^0.2*AAl*(T3-T4));
 
 disp(double(real(solQdot)))
 disp(double(real(solT2)))

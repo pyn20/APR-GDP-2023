@@ -6,9 +6,12 @@ close all
 %%%CALCULATING EXHAUST FINS SIZING
 
 
+
 %whole bunch of coefficients
 
 Qdot = 160000;
+
+finNo = 40;
 
 mflow = 0.514;
 faRatio = 0.0125;
@@ -94,6 +97,8 @@ h = nu*k/L;
 %heat calculations
 
 A = Qdot/(550-400)/h;
+
+finH = A/(finNo*L);
 
 volume = pi*(R+0.01)^2*0.005*2+pi*((R+0.01)^2-R^2)*0.5+A*0.001*0.5;
 mass = volume*rhoS;
