@@ -70,13 +70,14 @@ rho = rhoN*erN + rhoW*erW + rhoO*erO;
 
 vdot = mdot/rho;
 v = vdot/(pi*eR^2);
+vNew = v*(pi*eR^2)/(pi*eR^2-pi*R^2);
 
 
 %reynolds number calculation
 
 mu = muN*erN + muW*erW + muO*erO;
 
-re = rho*v*L/mu; %for flat plate
+re = rho*vNew*L/mu; %for flat plate
 
 
 %nusselt number calculation
@@ -98,7 +99,7 @@ h = nu*k/L;
 
 A = Qdot/(550-400)/h;
 
-finH = A/(finNo*L);
+finH = A/(finNo*2*L);
 
 volume = pi*(R+0.01)^2*0.005*2+pi*((R+0.01)^2-R^2)*0.5+A*0.001*0.5;
 mass = volume*rhoS;

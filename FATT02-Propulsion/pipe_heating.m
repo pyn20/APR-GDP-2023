@@ -17,6 +17,10 @@ tableMu = readtable('C:\Users\Joseph\Desktop\Work stuff probably\Gross Domestic 
 tempMu = tableMu{:,1};
 Mu = tableMu{:,2};
 
+tableCp = readtable('C:\Users\Joseph\Desktop\Work stuff probably\Gross Domestic Product\cp_temp_ammonia.csv');
+tempCp = tableCp{:,1};
+Cp = tableCp{:,2};
+
 
 %fitting functions to table data
 
@@ -38,6 +42,15 @@ figure('Name','Dynamic Viscosity vs Position')
 
 plot(tempMuNew,MuNew)
 
+pCp = polyfit(tempCp,Cp,5);
+
+tempCpNew = linspace(-35,400);
+CpNew = polyval(pCp,tempCpNew)*1000;
+
+figure('Name','Specific Heat Capacity vs Position')
+
+plot(tempCpNew,CpNew)
+
 
 %a whole bunch of coefficients
 
@@ -46,6 +59,9 @@ mdot = 0.514;
 R1 = 0.05;
 A1 = pi*R1^2;
 u1 = mdot/(A1*Rho1);
+h = 562.7534;
+
+finNo = 20;
 
 
 %the big equation for duct area
@@ -89,3 +105,11 @@ figure('Name','Velocity vs Position')
 
 plot(ductLength,Vel)
 
+
+%heat into and through the pipes and stuff
+
+for j = 1:length(ductLength)-1
+    finA(j) = 0.5*mdot*(CpNew(j+1)+CpNew(j))*(tempCpNew(j+1)-tempCpNew(j))/(h*(550-0.5*(tempCpNew(j+1)-tempCpNew(j))));
+end
+
+finH = finA./(xi*finNo*2);

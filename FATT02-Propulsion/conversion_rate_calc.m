@@ -38,7 +38,7 @@ cT = 0.005; %thickness of the casing
 
 cVel = 5; %velocity of ammonia in the catalyst (m/s)
 
-mdot = 0.72; %mass flow rate from configuration
+mdot = 0.514*0.15; %mass flow rate from configuration
 fracCat = 0.77; %fraction of ammonia going into catalyst
 mCatalyst = mdot*fracCat; %mass flow rate through catalyst
 
