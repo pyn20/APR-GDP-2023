@@ -78,7 +78,7 @@ b = zeros(size(ductLength));
 
 for i = 1:length(ductLength)-1
     a(i) = mdot^2/(RhoNew(i)*A(i))*RhoNew(i+1)+4*MuNew(i+1)*mdot*xi/pi;
-    b(i) = -4*MuNew(i+1)*mdot*xi/pi;
+    b(i) = -4*MuNew(i+1)*mdot*A(i)*xi/pi;
     c = -mdot^2;
 
     sqrtArea(i+1) = (-b(i)+sqrt(b(i)^2-4*a(i)*c))/(2*a(i));
