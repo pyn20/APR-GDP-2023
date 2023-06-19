@@ -58,6 +58,8 @@ disp(double(real(solQdot)))
 disp(double(real(solT2)))
 disp(double(real(solT3)))
 
+asdf 
+double()
 
 %calculate equivalent evaporative mass
 

@@ -112,4 +112,10 @@ for j = 1:length(ductLength)-1
     finA(j) = 0.5*mdot*(CpNew(j+1)+CpNew(j))*(tempCpNew(j+1)-tempCpNew(j))/(h*(550-0.5*(tempCpNew(j+1)-tempCpNew(j))));
 end
 
+finATotal = sum(finA,"all");
+
 finH = finA./(xi*finNo*2);
+
+disp(finATotal)
+disp(finH(1))
+disp(finH(99))

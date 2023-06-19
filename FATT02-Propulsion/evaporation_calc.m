@@ -54,12 +54,16 @@ syms T2 T3 Qdot
 
 [solQdot, solT2, solT3] = solve(Qdot == h*AA*(T1-T2), Qdot == kAl*AAl/tAl*(T2-T3), Qdot == 0.52*kNH/L*(rhoNH^2*cpNH*bNH*(T3-T4)*g/(dvNH*kNH))^0.2*AAl*(T3-T4));
 
-disp(double(real(solQdot)))
-disp(double(real(solT2)))
-disp(double(real(solT3)))
+disp(double(solQdot))
+disp(double(solT2))
+disp(double(solT3))
 
+T3new = 0.0171;
+asdf = double(rhoNH^2*cpNH*bNH*(T3new-T4)*g/(dvNH*kNH));
+NuAmmonia = 0.52*asdf^0.2;
+hAmmonia = NuAmmonia*kNH/L;
 
 %calculate equivalent evaporative mass
 
-molsec = double(real(solQdot(1)))/HV;
+molsec = double(solQdot(1))/HV;
 totalM = molsec*0.17*3600;

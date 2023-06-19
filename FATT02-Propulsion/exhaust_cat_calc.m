@@ -13,8 +13,8 @@ Qdot = 160000;
 
 finNo = 40;
 
-mflow = 0.514;
-faRatio = 0.0125;
+mflow = 0.517;
+faRatio = 0.0455;
 
 rhoN = 0.493;
 rhoW = 0.02455;
@@ -46,7 +46,7 @@ mdot = mflow/faRatio + mflow;
 
 %exhaust species ratio calculation
 
-[mA, mN, mH] = molar_calculator(0.7,17,2,1/3);
+[mA, mN, mH, mAU, mAR, pA, pAR] = molar_calculator(0.7);
 
 mAir = 1/faRatio;
 
@@ -102,7 +102,7 @@ A = Qdot/(550-400)/h;
 finH = A/(finNo*2*L);
 
 volume = pi*(R+0.01)^2*0.005*2+pi*((R+0.01)^2-R^2)*0.5+A*0.001*0.5;
-mass = volume*rhoS;
+mass = volume*rhoS+11.5698;
 
 
 

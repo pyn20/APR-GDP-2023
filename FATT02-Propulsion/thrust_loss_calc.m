@@ -15,9 +15,10 @@ r = 287;
 gamma = 1.2;
 Re = 9.1705e+06;
 rho = 0.4786;
-finA = 1.895;
+finA = 4.8621;
 rad = 0.55/2;
-catA = 0.0190;
+%catA = 0.0190;
+catA = 0.0459;
 
 a = sqrt(gamma*r*t);
 
@@ -31,8 +32,8 @@ M = uNew/a;
 
 %Cf calculation
 
-A = 0.0392; %constants for flat plate skin friction coefficient at mach 0.9
-B = -0.16;
+A = 0.0376; %constants for flat plate skin friction coefficient at mach 0.9
+B = -0.159;
 
 Cf = A*Re^B;
 

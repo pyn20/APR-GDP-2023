@@ -16,14 +16,14 @@ SurfaceA_l = 2*pi*r_l*10;  % surface area by assumming 10m long
 
 e_steel = 0.56; % steel sheet rolled
 
-P_l = e_steel*sigma*SurfaceA_l*(T_2^4-T_1^4)
+P_l = e_steel*sigma*SurfaceA_l*(T_2^4-T_1^4);
 
 
 % P_e: power of heat loss to endothermic reaction, constant
 E_per_mol = 92.21536*10^3/2;  %J/mol
-flow_one_engine = 0.25/(17/1000); %in mol/s
+flow_one_engine = 0.517*0.777*0.15/(17/1000); %in mol/s
 E_per_s = E_per_mol*flow_one_engine;
-P_e = E_per_s
+P_e = E_per_s;
 
 
 % P_a: power required to heat NH3 to 400C, function of altitude
@@ -32,11 +32,11 @@ r = sqrt(A/pi);
 SurfaceA = 2*pi*r*2;  % surface area by assumming 2m long
 e_Ti = 0.63; % Ti fullly sized
 
-P_a = e_Ti*sigma*SurfaceA*(T_2^4-T_1^4)
+P_a = e_Ti*sigma*SurfaceA*(T_2^4-T_1^4);
 
 
 
-P_c = P_l + P_e + P_a
+P_c = P_l + P_e + P_a;
 
 
 

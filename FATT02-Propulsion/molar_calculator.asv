@@ -32,7 +32,7 @@
 % disp(mH_fuelmix)
 
 
-function [mA_fuelmix, mN_fuelmix, mH_fuelmix,mAU,mAR,pA,pAR] = molar_calculator(mr)
+function [mA_fuelmix, mN_fuelmix, mH_fuelmix,pA,pAR] = molar_calculator(mr)
 
 %constants
 
@@ -44,7 +44,7 @@ eff = 0.8; %efficiency
 
 %molar calculation
 
-mH = 1/(nGFM/hGFM*nhR+mr/(1-mr)+1); %mass of hydrogen as a fraction of 1
+mH = 1/(aGFM/hGFM*nhR+mr/(1-mr)+1); %mass of hydrogen as a fraction of 1
 mA = mr/(1-mr)*mH; %mass of ammonia as a fraction of 1
 mN = aGFM/hGFM*nhR*mH; %mass of nitrogen as a fraction of 1
 

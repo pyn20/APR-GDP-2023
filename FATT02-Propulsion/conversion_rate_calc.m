@@ -10,13 +10,12 @@ close all
 %parameters
 
 cr = 52.8; %cataytic conversion rate in mmol/min/g
-mr = 0.7; %ratio of ammonia in final fuel mixture (mass)
 
 aLHV = 18.6; %in MJ/kg
 hLHV = 120; %in MJ/kg
 
 GFM = 2; %gfm of hydrogen
-EFF = 0.80; %efficiency
+EFF = 0.36; %efficiency
 
 maxP = 6692; %max power required in kW for all engines
 
@@ -38,8 +37,9 @@ cT = 0.005; %thickness of the casing
 
 cVel = 5; %velocity of ammonia in the catalyst (m/s)
 
-mdot = 0.514*0.15; %mass flow rate from configuration
-fracCat = 0.77; %fraction of ammonia going into catalyst
+mPE = 0.517; %maximum mass flow rate per engine
+mdot = mPE*2*0.15; %mass flow rate from configuration
+fracCat = 0.777; %fraction of ammonia going into catalyst
 mCatalyst = mdot*fracCat; %mass flow rate through catalyst
 
 
@@ -52,7 +52,7 @@ cr_power = cr_si*120*1000*EFF;
 disp("Power output per kilogram of catalyst in kW:")
 disp(cr_power)
 
-WHSV_SI = WHSV/3600; %conversion to L/s/kg
+WHSV_SI = WHSV/3600/1000; %conversion to m^3/s/kg
 
 
 %volume calculation
@@ -83,6 +83,10 @@ Vol = cVol + aVol;
 disp(Vol)
 
 
+%total power output
+
+totalPower = 18600*(mPE*2-MFR)*EFF+catM*cr_power;
+
 
 %casing calculation
 
@@ -96,4 +100,4 @@ disp(casVol)
 disp("The mass of the outer casing is:")
 disp(casM)
 disp("The total mass of a singular catalytic converter is:")
-disp(casM+catM/2)
+disp(casM+catM)

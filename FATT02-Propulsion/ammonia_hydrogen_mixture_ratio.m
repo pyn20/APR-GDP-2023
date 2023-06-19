@@ -22,7 +22,7 @@ aMAIT = 923.15; %the minimum auto ignition temperature of ammonia in kelvin (650
 
 hLHV = 120;
 hHHV = 141.7;
-hAFT = 2400;
+hAFT = 2250+273.15;
 hMLBV = 3;
 hMAIT = 858;
 
@@ -42,13 +42,13 @@ disp("Higher heating value of mixture:")
 disp(HHV)
 
 disp("Adiabatic flame temperature of mixture:")
-disp(AFT)
+disp(AFT-273.15)
 
 disp("Maximmum laminar burning velocity of mixture:")
 disp(MLBV)
 
 disp("Minimum auto ignition temperature of mixture:")
-disp(MAIT)
+disp(MAIT-273.15)
 
 
 
